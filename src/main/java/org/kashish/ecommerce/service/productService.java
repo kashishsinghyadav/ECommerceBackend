@@ -30,5 +30,6 @@ public class productService {
         product.setImageData(imageFile.getBytes());
         product.setImageType(imageFile.getContentType());
         return productRepo.save(product);
+
     }
 }
