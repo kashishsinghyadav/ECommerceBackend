@@ -86,7 +86,7 @@ public class productController {
         return new ResponseEntity<>("Product Not Found",HttpStatus.NOT_FOUND);
 
      }
-
+// use this to handle large object
     @Transactional
     @GetMapping("/products/search")
     public ResponseEntity<List<Product>> getProductByCategory(@RequestParam String keyword) {
