@@ -40,7 +40,12 @@ public class productService {
         return productRepo.save(product);
     }
 
-    public void deleteProduct(Product product) {
-        productRepo.delete(product);
+    public void deleteProduct(Product productdelete) {
+        productRepo.delete(productdelete);
+    }
+
+    public List<Product> getProductBySearch(String keyword) {
+        return productRepo.findProductByKeyword(keyword);
+
     }
 }

@@ -1,5 +1,6 @@
 package org.kashish.ecommerce.controller;
 
+import org.springframework.transaction.annotation.Transactional;
 
 import org.kashish.ecommerce.model.Product;
 import org.kashish.ecommerce.service.productService;
@@ -85,4 +86,18 @@ public class productController {
         return new ResponseEntity<>("Product Not Found",HttpStatus.NOT_FOUND);
 
      }
+
+    @Transactional
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> getProductByCategory(@RequestParam String keyword) {
+
+        List<Product> product = productservice.getProductBySearch(keyword);
+        if (!product.isEmpty()) {
+            return new ResponseEntity<>(product, HttpStatus.OK);
+
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+
 }
