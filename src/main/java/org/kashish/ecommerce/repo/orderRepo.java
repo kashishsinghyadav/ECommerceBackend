@@ -1,8 +1,10 @@
 package org.kashish.ecommerce.repo;
 
-import jakarta.persistence.criteria.Order;
+import org.kashish.ecommerce.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface orderRepo extends JpaRepository<Order,Integer> {
+@Repository
+public interface orderRepo extends JpaRepository<Order,Long> {
 
 }
